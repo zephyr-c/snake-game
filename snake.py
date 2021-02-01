@@ -1,11 +1,12 @@
-from turtle import Turtle
+import turtle as t
 STARTING_POSITIONS = [(0,0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE = 20
 UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
-
+DEFAULT_COLOR = ("lime")
+t.colormode(255)
 
 
 class Snake():
@@ -20,15 +21,15 @@ class Snake():
         for position in STARTING_POSITIONS:
             self.add_segment(position)
 
-    def add_segment(self, position, color='white'):
-        body_segment = Turtle(shape='square')
+    def add_segment(self, position, color=DEFAULT_COLOR):
+        body_segment = t.Turtle(shape='square')
         body_segment.color(color)
         body_segment.pu()
         body_segment.setpos(position)
         self.segments.append(body_segment)
 
-    def extend_snake(self):
-        self.add_segment(self.tail.position())
+    def extend_snake(self, color=DEFAULT_COLOR):
+        self.add_segment(self.tail.position(), color)
 
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1):
