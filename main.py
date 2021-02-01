@@ -16,18 +16,11 @@ food = Food()
 score = Scoreboard()
 game_on = True
 
-# def new_game():
-#     screen.reset()
-#     snake.reset()
-#     score.reset()
-#     game_on = True
-
 screen.listen()
 screen.onkey(key="Up", fun=snake.up)
 screen.onkey(key="Down", fun=snake.down)
 screen.onkey(key="Left", fun=snake.left)
 screen.onkey(key="Right", fun=snake.right)
-# screen.onkey(key="space", fun=new_game)
 
 while game_on:
     screen.update()
