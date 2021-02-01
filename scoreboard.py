@@ -23,3 +23,7 @@ class Scoreboard(Turtle):
         self.clear()
         self.text = f"Score: {self.score}"
         self.write(self.text, align=ALIGNMENT, font=FONT)
+
+    def reset(self):
+        self.clear()
+        self.__init__()
