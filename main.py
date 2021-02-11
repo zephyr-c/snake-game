@@ -29,8 +29,10 @@ while game_on:
 
     # Detect collision with food
     if snake.head.distance(food) < 15:
+        # print(food.fillcolor())
+        new_color = tuple(int(v) for v in food.fillcolor())
         food.refresh()
-        snake.extend_snake()
+        snake.extend_snake(new_color)
         score.increase_score()
 
     # Detect collision with wall

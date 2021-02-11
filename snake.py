@@ -6,23 +6,24 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 DEFAULT_COLOR = ("lime")
-t.colormode(255)
-
+# t.colormode(255)
+from food import random_color
 
 class Snake():
     def __init__(self):
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
+        self.head.color((255, 255, 255))
         self.head.shape('circle')
         self.tail = self.segments[-1]
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            self.add_segment(position)
+            self.add_segment(position, color=random_color())
 
     def add_segment(self, position, color=DEFAULT_COLOR):
-        body_segment = t.Turtle(shape='square')
+        body_segment = t.Turtle(shape='circle')
         body_segment.color(color)
         body_segment.pu()
         body_segment.setpos(position)
@@ -59,3 +60,5 @@ class Snake():
         self.segments.clear()
         self.create_snake()
         self.head = self.segments[0]
+        self.head.color((255, 255, 255))
+        self.head.shape("circle")
